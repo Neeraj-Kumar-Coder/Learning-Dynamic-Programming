@@ -16,7 +16,6 @@ int main(void)
 
 string printLCS(string a, string b)
 {
-    string lcs;
     int m = a.length(), n = b.length();
     int **memory = new int *[m + 1];
     for (int i = 0; i < m + 1; i++)
@@ -42,7 +41,6 @@ string printLCS(string a, string b)
             if (a[i - 1] == b[j - 1])
             {
                 memory[i][j] = 1 + memory[i - 1][j - 1];
-                // lcs.push_back(a[i - 1]); // No need to reverse the string if we use this
             }
             else
             {
@@ -73,5 +71,6 @@ string printLCS(string a, string b)
             }
         }
     }
+    reverse(lcs.begin(), lcs.end());
     return lcs;
 }
